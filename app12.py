@@ -2,9 +2,8 @@ import streamlit as st
 import pickle
 import numpy as np
 
-# Model आणि Scaler load करा
+# Model load करा (Random Forest Regression pickle फाईल)
 rf = pickle.load(open("food_delivery_sample.pkl", "rb"))
-
 
 st.title("🍔 Food Delivery Time Prediction")
 
@@ -15,8 +14,10 @@ weather = st.slider("Weather Severity Score", 0.0, 10.0, 5.0)
 rating = st.slider("Restaurant Rating", 1.0, 5.0, 4.0)
 
 if st.button("Predict Delivery Time"):
+    # Inputs NumPy array मध्ये convert करा
     input_data = np.array([[distance, prep_time, traffic, weather, rating]])
-    input_data_scaled = scaler.transform(input_data)
-    prediction = rf.predict(input_data_scaled)[0]
+    
+    # Direct prediction (scaler नाही वापरला)
+    prediction = rf.predict(input_data)[0]
    
     st.success(f"Estimated Delivery Time: {round(prediction, 2)} minutes")
