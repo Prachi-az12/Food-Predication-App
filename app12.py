@@ -4,7 +4,7 @@ import numpy as np
 from sklearn.preprocessing import StandardScaler
 
 # Model load करा
-rf = pickle.load(open("food_delivery_rf_model.pkl", "rb"))
+rf = pickle.load(open("food_delivery_sample.pkl", "rb"))
 
 st.title("🍔 Food Delivery Time Prediction")
 
