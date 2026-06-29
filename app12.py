@@ -3,7 +3,7 @@ import pickle
 import numpy as np
 
 # Model आणि Scaler load करा
-rf = pickle.load(open("food_delivery_rf_model.pkl", "rb"))
+rf = pickle.load(open("food_delivery_sample.pkl", "rb"))
 scaler = pickle.load(open("scaler.pkl", "rb"))
 
 st.title("🍔 Food Delivery Time Prediction")
