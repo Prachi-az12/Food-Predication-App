@@ -3,7 +3,7 @@ import pickle
 import numpy as np
 
 # Model आणि Scaler load करा
-rf = pickle.load(open("food_delivery_sample.pkl", "rb"))
+rf = pickle.load(open("food_delivery_rf_model.pkl", "rb"))
 scaler = pickle.load(open("scaler.pkl", "rb"))
 
 st.title("🍔 Food Delivery Time Prediction")
@@ -18,6 +18,5 @@ if st.button("Predict Delivery Time"):
     input_data = np.array([[distance, prep_time, traffic, weather, rating]])
     input_data_scaled = scaler.transform(input_data)
     prediction = rf.predict(input_data_scaled)[0]
+   
     st.success(f"Estimated Delivery Time: {round(prediction, 2)} minutes")
-")
-
